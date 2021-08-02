@@ -4,9 +4,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import HomeScreen from './screens/HomeScreen'
-import ProductScreen from './screens/ProductScreen'
-import AddProductScreen from './screens/AddProductScreen'
+import Routes from './components/router/Routes'
 
 const queryClient = new QueryClient()
 
@@ -17,12 +15,7 @@ function App() {
                 <Header />
                 <main>
                     <Container>
-                        <Route path="/" component={HomeScreen} exact />
-                        <Route path="/product/:id" component={ProductScreen} />
-                        <Route
-                            path="/add-products"
-                            component={AddProductScreen}
-                        />
+                        <Routes />
                     </Container>
                 </main>
                 <Footer />
