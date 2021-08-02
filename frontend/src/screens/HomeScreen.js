@@ -1,6 +1,7 @@
 import React from 'react'
-import { Alert, Col, Row, Spinner } from 'react-bootstrap'
+import { Alert, Button, Col, Row, Spinner } from 'react-bootstrap'
 import { useQueryClient } from 'react-query'
+import { LinkContainer } from 'react-router-bootstrap'
 import Product from '../components/Product'
 import { QUERY_KEYS } from '../helpers/constants'
 import { fetchProduct } from '../hooks/useProduct'
@@ -43,7 +44,18 @@ const HomeScreen = () => {
 
     return (
         <>
-            <h1>Latest Products</h1>
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                }}
+            >
+                <h1>Latest Products</h1>
+                <LinkContainer to="/add-products">
+                    <Button variant="text">Add Product</Button>
+                </LinkContainer>
+            </div>
             <Row>
                 {products.map((product) => (
                     <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
